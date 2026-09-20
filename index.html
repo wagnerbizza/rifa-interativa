@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rifa Interativa - Prémio Especial</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f9; margin: 0; padding: 20px; text-align: center; }
+        h1 { color: #333; margin-bottom: 5px; }
+        .aviso-prazo { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; padding: 12px; border-radius: 8px; max-width: 650px; margin: 0 auto 15px auto; font-size: 14px; text-align: center; font-weight: bold; }
+        .produto-box { background: #fff; max-width: 650px; margin: 0 auto 20px auto; padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+        .produto-box img { max-width: 100%; height: auto; border-radius: 6px; max-height: 280px; object-fit: cover; }
+        .preco { font-size: 20px; color: #4CAF50; font-weight: bold; margin: 12px 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(55px, 1fr)); gap: 8px; max-width: 650px; margin: 20px auto; max-height: 300px; overflow-y: auto; padding: 12px; background: #fff; border-radius: 8px; border: 1px solid #ddd; }
+        .numero { padding: 10px 5px; background: #e0e0e0; border: 1px solid #ccc; cursor: pointer; border-radius: 4px; font-weight: bold; }
+        .numero.vendido { background: #ff4d4d; color: #fff; cursor: not-allowed; border-color: #cc0000; }
+        .numero.selecionado { background: #4CAF50; color: #fff; border-color: #388E3C; }
+        #painel-compra { background: #fff; max-width: 650px; margin: 20px auto; padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); text-align: left; }
+        input, button { width: 100%; padding: 12px; margin: 8px 0; box-sizing: border-box; }
+        button { background: #2196F3; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold; }
+        button:hover { background: #0b7dda; }
+        .instrucoes { background: #e8f4fd; padding: 15px; border-radius: 5px; font-size: 14px; color: #055160; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <h1>Rifa do Produto</h1>
+    
+    <!-- Caixa de Aviso de Regra/Prazo de Pagamento -->
+    <div class="aviso-prazo">
+        ⚠️ <strong>ATENÇÃO:</strong> A reserva só é confirmada após o envio do comprovante. Reservas não pagas em até <strong>1 hora</strong> serão canceladas e o número ficará disponível novamente!
+    </div>
+
+    <!-- Caixa do Produto -->
+    <div class="produto-box">
+        <img src="https://via.placeholder.com/500x280?text=Foto+do+Seu+Produto" alt="Produto da Rifa">
+        <h3>Nome do Produto em Rifa</h3>
+        <p>Descrição curta do prémio que vai a sorteio. Boa sorte a todos!</p>
+        <div class="preco">Valor por número: R$ 10,00</div>
+    </div>
+
+    <p>Clique nos números disponíveis abaixo para selecionar:</p>
+
+    <!-- Grade de Números -->
+    <div id="grid-numeros" class="grid">A carregar números...</div>
+
+    <!-- Formulário de Compra -->
+    <div id="painel-compra">
+        <h3>Finalizar Reserva</h3>
+        <p>Números selecionados: <span id="num-selecionados" style="font-weight: bold; color: #d9534f;">Nenhum</span></p>
+        
+        <input type="text" id="nome" placeholder="Seu Nome Completo" required>
+        <input type="text" id="telefone" placeholder="Seu WhatsApp (com DDD)" required>
+
+        <div class="instrucoes">
+            <strong>Instruções de Pagamento (PIX PagBank):</strong><br>
+            Escaneie o QR Code abaixo com o aplicativo do seu banco ou utilize a chave PIX: <code>306.440.848-80</code><br><br>
+            <div style="text-align: center;">
+                <img src="QR Code/pix.jpeg" alt="QR Code PIX" style="max-width: 150px; border-radius: 4px; border: 1px solid #ccc;">
+            </div>
+        </div>
+
+        <button id="btn-comprar">Reservar e Enviar Comprovativo no WhatsApp</button>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

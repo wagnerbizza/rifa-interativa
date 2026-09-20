@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Rifa</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f9; padding: 20px; text-align: center; }
+        h1 { color: #333; }
+        .paineis { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+        .caixa-painel { background: #fff; max-width: 350px; flex: 1; padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); text-align: left; }
+        .caixa-painel h2 { margin-top: 0; font-size: 18px; color: #333; border-bottom: 2px solid #2196F3; padding-bottom: 8px; }
+        table { width: 100%; max-width: 800px; margin: 20px auto; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background-color: #2196F3; color: white; }
+        button { background: #4CAF50; color: white; border: none; padding: 10px 15px; font-size: 15px; cursor: pointer; border-radius: 4px; font-weight: bold; width: 100%; margin-top: 10px; }
+        button:hover { background: #45a049; }
+        .btn-zerar { background: #d9534f; }
+        .btn-zerar:hover { background: #c9302c; }
+        .btn-cancelar-num { background: #f0ad4e; color: white; border: none; padding: 6px 12px; font-size: 13px; cursor: pointer; border-radius: 4px; font-weight: bold; width: auto; margin-top: 0; }
+        .btn-cancelar-num:hover { background: #ec971f; }
+        #resultado-sorteio { font-size: 16px; font-weight: bold; color: #d9534f; margin-top: 10px; text-align: center; }
+        .voltar { display: inline-block; margin-bottom: 20px; color: #2196F3; text-decoration: none; font-weight: bold; }
+        .voltar:hover { text-decoration: underline; }
+        .info-item { font-size: 14px; margin: 8px 0; color: #555; }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="voltar">← Voltar para o Site da Rifa</a>
+    <h1>Painel de Controle e Sorteio</h1>
+
+    <!-- Blocos de Informação do Produto, Sorteio e Gestão -->
+    <div class="paineis">
+        
+        <!-- Bloco 1: Dados do Produto e QR Code do PIX -->
+        <div class="caixa-painel">
+            <h2>Dados do Produto & PIX</h2>
+            <div class="info-item"><strong>Prémio:</strong> Nome do Produto em Rifa</div>
+            <div class="info-item"><strong>Preço por Número:</strong> R$ 10,00</div>
+            <div class="info-item"><strong>Chave PIX:</strong> <code>306.440.848-80</code></div>
+            
+            <div style="text-align: center; margin-top: 12px;">
+                <img src="QR Code/pix.jpeg" alt="QR Code PIX" style="max-width: 120px; border-radius: 4px; border: 1px solid #ddd;">
+            </div>
+        </div>
+
+        <!-- Bloco 2: Área de Sorteio -->
+        <div class="caixa-painel">
+            <h2>Área de Sorteio</h2>
+            <button id="btn-sortear">Realizar Sorteio</button>
+            <div id="resultado-sorteio"></div>
+        </div>
+
+        <!-- Bloco 3: Gerenciar / Zerar -->
+        <div class="caixa-painel">
+            <h2>Gestão da Rifa</h2>
+            <p style="font-size: 13px; color: #666; margin-top:0;">Limpa todas as reservas atuais e libera os números.</p>
+            <button id="btn-zerar" class="btn-zerar">Zerar / Reiniciar Rifa</button>
+        </div>
+
+    </div>
+
+    <!-- Lista de Compradores -->
+    <h2>Lista de Números Vendidos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Comprador</th>
+                <th>Telefone</th>
+                <th>Ação (Não Pagou?)</th>
+            </tr>
+        </thead>
+        <tbody id="tabela-compradores">
+            <tr>
+                <td colspan="4">A carregar compradores...</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
